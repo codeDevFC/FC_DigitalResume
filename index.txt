@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Felix Cobbinah - Front End Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #00ACC1;
+            --primary-dark: #006064;
+            --secondary: #E0F7FA;
+            --text: #2C3E50;
+            --text-light: #546E7A;
+            --white: #ffffff;
+            --accent: #FFA726;
+            --border: #e0e0e0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--white);
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid var(--secondary);
+        }
+        
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 2rem;
+            border: 4px solid var(--secondary);
+        }
+        
+        .header-content h1 {
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+            font-size: 2rem;
+        }
+        
+        .header-content p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+        
+        .contact-link {
+            display: flex;
+            align-items: center;
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        
+        .contact-link i {
+            margin-right: 0.5rem;
+        }
+        
+        .section {
+            margin-bottom: 2.5rem;
+        }
+        
+        .section-title {
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--primary);
+            padding-left: 0.75rem;
+            font-size: 1.5rem;
+        }
+        
+        .summary {
+            background-color: var(--secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .skill-category {
+            margin-bottom: 1.5rem;
+        }
+        
+        .skill-category h3 {
+            color: var(--primary-dark);
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
+        }
+        
+        .skill-item {
+            background-color: var(--secondary);
+            padding: 0.75rem;
+            border-radius: 6px;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-item i {
+            margin-right: 0.75rem;
+            color: var(--primary-dark);
+        }
+        
+        .skill-level {
+            height: 8px;
+            background-color: var(--border);
+            border-radius: 4px;
+            margin-top: 0.25rem;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background-color: var(--primary);
+            border-radius: 4px;
+        }
+        
+        .experience-item, .education-item, .project-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .experience-item:last-child, .education-item:last-child, .project-item:last-child {
+            border-bottom: none;
+        }
+        
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        
+        .item-title {
+            font-weight: 600;
+            color: var(--primary-dark);
+            font-size: 1.1rem;
+        }
+        
+        .item-date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .item-subtitle {
+            color: var(--text-light);
+            margin-bottom: 0.75rem;
+            font-style: italic;
+        }
+        
+        .item-description {
+            margin-bottom: 0.75rem;
+        }
+        
+        .item-list {
+            list-style-type: none;
+            margin-left: 1rem;
+        }
+        
+        .item-list li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .item-list li::before {
+            content: "•";
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--secondary);
+            color: var(--primary-dark);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+        
+        .project-link:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        
+        .project-link i {
+            margin-right: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .profile-img {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+            
+            .contact-links {
+                justify-content: center;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .item-header {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <img src="_id_profile.jpg" alt="Felix Cobbinah" class="profile-img">
+            <div class="header-content">
+                <h1>Felix Cobbinah</h1>
+                <p>Front End Developer</p>
+                <div class="contact-links">
+                    <a href="mailto:felixcobby@gmail.com" class="contact-link">
+                        <i class="fas fa-envelope"></i> felixcobby@gmail.com
+                    </a>
+                    <a href="tel:+447907666278" class="contact-link">
+                        <i class="fas fa-phone"></i> +447907666278
+                    </a>
+                    <a href="https://github.com/codeDevFC" class="contact-link">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="https://linkedin.com/in/your-username" class="contact-link">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="#" class="contact-link">
+                        <i class="fas fa-map-marker-alt"></i> Visättravägen 19 LGH 1203, 141 50 Huddinge - Stockholm
+                    </a>
+                </div>
+            </div>
+        </header>
+        
+        <section class="section">
+            <div class="summary">
+                <p>Front End Developer with experience in JavaScript, HTML, CSS, and modern frameworks like Vue.js. Passionate about creating responsive, user-friendly interfaces with clean, efficient code. Skilled in implementing designs from Figma and ensuring consistent user experience across all devices. Strong problem-solving abilities and commitment to quality-driven development.</p>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">Technical Skills</h2>
+            
+            <div class="skill-category">
+              <h3>Front End Development</h3>
+              <div class="skills-grid">
+                  <div class="skill-item">
+                      <i class="fab fa-js"></i>
+                      <div style="width: 100%">
+                          <span>JavaScript (ES6)</span>
+                          <div class="skill-level">
+                              <div class="skill-progress" style="width: 85%"></div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="skill-item">
+                      <i class="fab fa-html5"></i>
+                      <div style="width: 100%">
+                          <span>HTML5</span>
+                          <div class="skill-level">
+                              <div class="skill-progress" style="width: 90%"></div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="skill-item">
+                      <i class="fab fa-css3-alt"></i>
+                      <div style="width: 100%">
+                          <span>CSS3/Tailwind</span>
+                          <div class="skill-level">
+                              <div class="skill-progress" style="width: 85%"></div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="skill-item">
+                      <i class="fab fa-react"></i>
+                      <div style="width: 100%">
+                          <span>React.js</span>
+                          <div class="skill-level">
+                              <div class="skill-progress" style="width: 80%"></div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="skill-item">
+                      <i class="fab fa-vuejs"></i>
+                      <div style="width: 100%">
+                          <span>Vue.js</span>
+                          <div class="skill-level">
+                              <div class="skill-progress" style="width: 75%"></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+            
+            <div class="skill-category">
+                <h3>Development Tools</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <i class="fab fa-git-alt"></i>
+                        <div style="width: 100%">
+                            <span>Git/GitHub</span>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-figma"></i>
+                        <div style="width: 100%">
+                            <span>Figma</span>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">Projects</h2>
+            
+            <div class="project-item">
+                <div class="item-header">
+                    <h3 class="item-title">SMIC Church Website</h3>
+                    <span class="item-date">2025 - Present</span>
+                </div>
+                <p class="item-subtitle">Front End Developer</p>
+                <p class="item-description">
+                    Developed a responsive multilingual church website using modern front-end technologies.
+                </p>
+                <ul class="item-list">
+                    <li>Built with React.js and Tailwind CSS for responsive design</li>
+                    <li>Implemented i18n for multilingual support (English and Swedish)</li>
+                    <li>Created interactive components for improved user engagement</li>
+                    <li>Optimized for performance across all devices</li>
+                    <li>Integrated content management for easy updates</li>
+                </ul>
+                <div class="project-links">
+                    <a href="https://smic-website.netlify.app/" class="project-link">
+                        <i class="fas fa-external-link-alt"></i> View Live Site
+                    </a>
+                    <a href="https://github.com/codeDevFC" class="project-link">
+                        <i class="fab fa-github"></i> View Code
+                    </a>
+                </div>
+            </div>
+            
+            <div class="project-item">
+                <div class="item-header">
+                    <h3 class="item-title">Bible Studies Resources</h3>
+                    <span class="item-date">2024 - 2025</span>
+                </div>
+                <p class="item-subtitle">Lead Developer</p>
+                <p class="item-description">
+                    Created a comprehensive Bible study resource platform with searchable content and study tools.
+                </p>
+                <ul class="item-list">
+                    <li>Developed using HTML5, CSS3, and JavaScript</li>
+                    <li>Implemented responsive design for mobile and desktop users</li>
+                    <li>Created searchable study materials and resources</li>
+                    <li>Optimized for accessibility and ease of navigation</li>
+                </ul>
+                <div class="project-links">
+                    <a href="https://bible-studies-resources.netlify.app/index.html" class="project-link">
+                        <i class="fas fa-external-link-alt"></i> View Live Site
+                    </a>
+                    <a href="https://github.com/codeDevFC" class="project-link">
+                        <i class="fab fa-github"></i> View Code
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">Professional Experience</h2>
+            
+            <div class="experience-item">
+                <div class="item-header">
+                    <h3 class="item-title">Digital Content Developer</h3>
+                    <span class="item-date">2020 - Present</span>
+                </div>
+                <p class="item-subtitle">Self-employed</p>
+                <ul class="item-list">
+                    <li>Developed and maintained websites for small businesses and organizations</li>
+                    <li>Created responsive, user-friendly interfaces using HTML, CSS, and JavaScript</li>
+                    <li>Implemented designs from mockups and wireframes</li>
+                    <li>Optimized websites for performance and search engine visibility</li>
+                    <li>Provided ongoing maintenance and updates</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item">
+                <div class="item-header">
+                    <h3 class="item-title">Church Administrative Support</h3>
+                    <span class="item-date">2005 - 2009 & 2024 - Present</span>
+                </div>
+                <p class="item-subtitle">Seventh-day Adventist Church, Sweden</p>
+                <ul class="item-list">
+                    <li>Managed digital content and communications</li>
+                    <li>Created and maintained organizational websites and digital resources</li>
+                    <li>Developed digital solutions for administrative processes</li>
+                    <li>Coordinated online events and digital outreach initiatives</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">Education & Training</h2>
+            
+            <div class="education-item">
+                <div class="item-header">
+                    <h3 class="item-title">Front End Development</h3>
+                    <span class="item-date">2021 - 2023</span>
+                </div>
+                <p class="item-subtitle">Self-directed learning through online platforms</p>
+                <ul class="item-list">
+                    <li>Completed comprehensive courses in HTML, CSS, and JavaScript</li>
+                    <li>Studied modern frameworks including Vue.js</li>
+                    <li>Learned responsive design principles and techniques</li>
+                    <li>Practiced with real-world projects and coding challenges</li>
+                </ul>
+            </div>
+            
+            <div class="education-item">
+                <div class="item-header">
+                    <h3 class="item-title">Master's Degree in Theology</h3>
+                    <span class="item-date">Graduated: 2016</span>
+                </div>
+                <p class="item-subtitle">Adventist University of Florence (Villa Aurora), Italy</p>
+                <p class="item-description">
+                    Developed strong analytical, research, and communication skills that complement my technical abilities.
+                </p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

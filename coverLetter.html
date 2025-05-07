@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Felix Cobbinah - Cover Letter for Umain</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3498db;
+            --primary-dark: #2980b9;
+            --secondary: #e8f4fc;
+            --text: #2c3e50;
+            --text-light: #546e7a;
+            --white: #ffffff;
+            --accent: #f39c12;
+            --border: #e0e0e0;
+            --background: #f9f9f9;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background-color: var(--background);
+            padding: 0;
+            margin: 0;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--white);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        .letter-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 2.5rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .letter-header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .letter-header p {
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+        
+        .letter-content {
+            padding: 2.5rem;
+        }
+        
+        .date-section {
+            text-align: right;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .greeting {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+        
+        .paragraph {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+        }
+        
+        .closing {
+            margin-top: 2rem;
+        }
+        
+        .signature {
+            margin-top: 2.5rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            font-size: 1.1rem;
+        }
+        
+        .contact-info {
+            margin-top: 2.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            border-top: 1px solid var(--border);
+            padding-top: 1.5rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-right: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .contact-item i {
+            color: var(--primary);
+            margin-right: 0.5rem;
+        }
+        
+        .download-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 15px;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: all 0.2s ease;
+        }
+        
+        .download-btn:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .company-logo {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .highlight {
+            color: var(--primary-dark);
+            font-weight: 500;
+        }
+        
+        @media print {
+            body {
+                background-color: white;
+            }
+            
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+            
+            .download-btn {
+                display: none;
+            }
+            
+            .letter-header {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            @page {
+                margin: 0.5cm;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .letter-header {
+                padding: 1.5rem;
+            }
+            
+            .letter-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="download-btn" onclick="printCoverLetter()">
+        <i class="fas fa-download"></i> Download PDF
+    </button>
+    
+    <div class="container">
+        <header class="letter-header">
+            <div class="company-logo">
+                <i class="fas fa-code"></i>
+            </div>
+            <h1>Cover Letter</h1>
+            <p>Web Developer Internship Application</p>
+        </header>
+        
+        <div class="letter-content">
+            <div class="date-section">
+                <p>May 7, 2025</p>
+            </div>
+            
+            <p class="greeting">Dear Hiring Manager,</p>
+            
+            <p class="paragraph">
+                I'm writing to express my interest in the Web Developer Internship position at <span class="highlight">Umain</span>. As a front-end developer with experience in modern web technologies, I'm excited by your <span class="highlight">"Shape, Ship, Scale"</span> approach and the opportunity to contribute to innovative projects.
+            </p>
+            
+            <p class="paragraph">
+                My journey in web development began with self-directed learning, which has evolved into creating responsive, user-friendly websites for various organizations. I've worked with <span class="highlight">React.js, JavaScript, HTML5, and CSS3/Tailwind</span> to build multilingual platforms and resource sites. My recent projects include developing a church website with i18n support and an e-commerce platform, both requiring thoughtful user experience design and responsive implementation.
+            </p>
+            
+            <p class="paragraph">
+                What particularly attracts me to Umain is your commitment to mentorship and collaborative learning. I believe my combination of technical skills and theology background gives me a unique perspective on human-centered design - understanding not just how to build interfaces, but why they matter to the people using them.
+            </p>
+            
+            <p class="paragraph">
+                I'm eager to learn modern frameworks like <span class="highlight">NextJS and Svelte</span> while contributing my existing knowledge to your team. As someone who values both technical excellence and meaningful work, I'm excited by the prospect of solving real problems alongside experienced professionals in your multidisciplinary environment.
+            </p>
+            
+            <p class="paragraph closing">
+                I appreciate your consideration and would welcome the opportunity to discuss how my skills and enthusiasm could benefit Umain's innovative projects.
+            </p>
+            
+            <p class="signature">
+                Sincerely,<br>
+                Felix Cobbinah
+                <i class="fab fa-github"></i> github.com/codeDevFC
+            </p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i> felixcobby@gmail.com
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i> +46700185642
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i> Visättravägen 19 LGH 1203, 141 50 Huddinge
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i> github.com/codeDevFC
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function printCoverLetter() {
+            window.print();
+        }
+    </script>
+</body>
+</html>
